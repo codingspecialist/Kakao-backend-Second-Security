@@ -1,0 +1,4 @@
+package com.example.kakaoshop.user;
+
+public class UserRequest {
+}
