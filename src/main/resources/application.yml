@@ -1,0 +1,14 @@
+server:
+  servlet:
+    encoding:
+      charset: utf-8
+      force: true
+  port: 8080
+
+logging:
+  level:
+    '[com.example.kakaoshop]': DEBUG
+    '[org.hibernate.type]': TRACE
+
+file:
+  path: ./images/
