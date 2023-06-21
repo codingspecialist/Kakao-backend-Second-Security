@@ -31,7 +31,6 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test' // 테스트를 작성하기 위한 기능을 제공
 	runtimeOnly 'com.h2database:h2' // H2 데이터베이스를 사용하기 위한 의존성을 제공
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client' // Maria 데이터베이스를 사용하기 위한 의존성을 제공
-	implementation 'org.springframework.boot:spring-boot-starter-security' // 스프링 시큐리티 제공
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // JPA (Java Persistence API)를 제공
 }
 
