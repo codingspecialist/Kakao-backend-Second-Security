@@ -58,12 +58,8 @@ public class SecurityConfig {
         http.cors().configurationSource(configurationSource());
 
 
-        // 4. jSessionId 사용 거부
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
-
         // 5. form 로긴 해제 (UsernamePasswordAuthenticationFilter 비활성화)
-        http.formLogin().disable();
+        http.formLogin().loginPage("/loginForm").loginProcessingUrl("/login");
 
 
         // 6. 로그인 인증창이 뜨지 않게 비활성화
@@ -88,9 +84,7 @@ public class SecurityConfig {
 
         // 11. 인증, 권한 필터 설정
         http.authorizeRequests(
-                authorize -> authorize.antMatchers("/**").authenticated()
-                        .antMatchers("/admin/**")
-                        .access("hasRole('ADMIN')")
+                authorize -> authorize.antMatchers("/").authenticated()
                         .anyRequest().permitAll()
         );
 
