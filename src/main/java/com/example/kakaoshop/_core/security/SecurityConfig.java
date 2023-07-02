@@ -58,7 +58,8 @@ public class SecurityConfig {
 
         // 3. 인증, 권한 필터 설정
         http.authorizeRequests(
-                authorize -> authorize.antMatchers("/").authenticated()
+                authorize -> authorize.antMatchers("/joinForm", "/join", "/h2-console/**").permitAll()
+                        .antMatchers("/**").authenticated()
                         .anyRequest().permitAll()
         );
 
