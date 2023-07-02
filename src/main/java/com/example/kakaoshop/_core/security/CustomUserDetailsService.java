@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class CustomUserDetailsService implements UserDetailsService {
     private final UserJPARepository userRepository;
 
@@ -22,6 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
         Optional<User> userOP = userRepository.findByUsername(username);
 
+        // 로그인 실패시 예외 처리는 추후에 배울 예정
         if (userOP.isEmpty()) {
             log.warn("로그인에 실패하였습니다.");
             return null;

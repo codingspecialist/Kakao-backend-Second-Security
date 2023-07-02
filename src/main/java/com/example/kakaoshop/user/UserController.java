@@ -24,7 +24,7 @@ public class UserController {
         User user = User.builder().username(username)
                 .password(passwordEncoder.encode(password))
                 .email(email)
-                .roles(Collections.singletonList("ROLE_USER")).build();
+                .roles("ROLE_USER").build();
 
         userRepository.save(user);
 

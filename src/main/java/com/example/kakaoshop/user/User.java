@@ -1,11 +1,11 @@
 package com.example.kakaoshop.user;
 
-import com.example.kakaoshop._core.utils.StringArrayConverter;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -24,11 +24,11 @@ public class User{
     private String username;
 
     @Column(length = 30)
-    @Convert(converter = StringArrayConverter.class)
-    private List<String> roles = new ArrayList<>(); // role은 한 개 이상
+    private String roles; // role은 한 개 이상
 
     @Builder
-    public User(String email, String password, String username, List<String> roles) {
+    public User(int id, String email, String password, String username, String roles) {
+        this.id = id;
         this.email = email;
         this.password = password;
         this.username = username;
